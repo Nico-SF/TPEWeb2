@@ -2,16 +2,16 @@
 
 **Integrantes**
 
-Gonzalo Nicolas Sanchez Fiadone
+Gonzalo Nicolás Sanchez Fiadone (nicosanchezfiadone@gmail.com)
 
-Esteban Villanueva
+Esteban Gabriel Villanueva (estebangv.2023@gmail.com)
 
 ## TEMÁTICA COMERCIAL
 
-descripción
+Simulamos un E-Commerce de productos de hardware para PC, con un catálogo dinámico que presenta el stock de productos de forma simple e intuitiva.
 
 ## Diagrama entidad relación (DER)
 
-![Diagrama entidad.](/der.pdf "Diagrama entidad")
+![Diagrama entidad.](/ecommerce_DER.jpg "Diagrama entidad")
 
 
