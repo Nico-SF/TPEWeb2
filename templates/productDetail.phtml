@@ -1,0 +1,16 @@
+<?php require 'templates/header.phtml' ?>
+
+<!-- productDetail.phtml -->
+<div class="container">
+    <h2><?= $product->producto_nombre ?></h2>
+    <p><?= $product->descripcion ?></p>
+    <p>Precio: $<?= $product->precio ?></p>
+    <p>Categoría: <?= $product->categoria_nombre ?></p>
+    <!-- Mostrar la imagen del producto -->
+    <!-- <img src=" " alt=" "> -->
+    <!-- Agregar más detalles según sea necesario -->
+    <a href="productos/ver/<?= $product->producto_id; ?>" class="btn btn-primary">Volver a la lista de productos</a>
+</div>
+
+<?php require 'templates/footer.phtml' ?>
+

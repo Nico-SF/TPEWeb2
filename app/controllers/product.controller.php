@@ -36,4 +36,23 @@ class ProductController
 
         $this->view->showProducts($products);
     }
+
+    function showProductDetailPage($product_id){
+        
+        // Obtener los detalles del producto por su ID
+        $product = $this->model->getProductById($product_id);
+
+        // Mostrar la vista de detalle de producto individual
+        $this->view->showProducts($product);
+
+    }
+
+    public function showProductDetail($product_id)
+    {
+        // Obtener los detalles del producto por su ID
+        $product = $this->model->getProductById($product_id);
+
+        // Mostrar la vista de detalle de producto
+        $this->view->showProducts($product);
+    }
 }
