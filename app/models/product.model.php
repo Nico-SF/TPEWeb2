@@ -14,7 +14,9 @@ class ProductModel
      */
     function getProducts() //podria ser getAllProducts
     {
-        $query = $this->db->prepare('SELECT * FROM productos');
+        $query = $this->db->prepare('SELECT productos.*, categorias.categoria_nombre
+                                    FROM productos
+                                    JOIN categorias ON productos.categoria_id = categorias.categoria_id');
         $query->execute();
 
         // $product es un arreglo de productos
