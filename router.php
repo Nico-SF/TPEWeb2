@@ -11,9 +11,9 @@ if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
 
-// home      ->         CategoryController->showCategory();
-// productos ->         ProductController->showProduct();
-
+// home                     ->       CategoryController->showCategory();
+// productos                ->       ProductController->showProduct();
+// productos/categoria_id   ->       ProductController->showProductsByCategory($category_id);
 
 
 // parsea la accion para separar accion real de parametros
@@ -25,8 +25,17 @@ switch ($params[0]) {
         $controller->showCategory();
         break;
     case 'productos':
-        $controller = new ProductController();
-        $controller->showProduct();
+        if (isset($params[1])) {
+            $category_id = $params[1];
+            $controller = new ProductController();
+            $controller->showProductsByCategory($category_id);
+            break;
+        } else {
+            // Si no se proporciona un ID de categoría, muestra todos los productos
+            $controller = new ProductController();
+            $controller->showAllProducts();
+            break;
+        }
     default: 
         echo "404 Page Not Found";
         break;

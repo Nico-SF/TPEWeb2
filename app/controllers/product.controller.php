@@ -19,13 +19,21 @@ class ProductController
         $this->view = new ProductView();
     }
 
-    public function showProduct()
+    public function showAllProducts()
     {
 
         //obtengo los productos del controlador
         $products = $this->model->getProducts();
 
         //muestro los productos desde la vista
+        $this->view->showProducts($products);
+    }
+
+    public function showProductsByCategory($category_id)
+    {
+
+        $products = $this->model->getProductsByCategory($category_id);
+
         $this->view->showProducts($products);
     }
 }
