@@ -11,9 +11,10 @@ if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
 
-// /home                     ->       CategoryController->showCategory();
-// /productos                ->       ProductController->showProduct();
-// /productos/categoria_id   ->       ProductController->showProductsByCategory($category_id);
+// /home                       ->       CategoryController->showCategory();
+// /productos                  ->       ProductController->showProduct();
+// /productos/categoria_id     ->       ProductController->showProductsByCategory($category_id);
+// /productos/ver/producto_id  ->       ProductController->showProductById($product_id);
 
 
 // parsea la accion para separar accion real de parametros
