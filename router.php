@@ -1,5 +1,7 @@
 <?php
 require_once './app/controllers/Category.controller.php';
+require_once './app/controllers/Product.controller.php';
+
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -9,8 +11,8 @@ if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
 
-// home      ->         categoryController->showCategory();
-
+// home      ->         CategoryController->showCategory();
+// productos ->         ProductController->showProduct();
 
 
 
@@ -22,6 +24,9 @@ switch ($params[0]) {
         $controller = new CategoryController();
         $controller->showCategory();
         break;
+    case 'productos':
+        $controller = new ProductController();
+        $controller->showProduct();
     default: 
         echo "404 Page Not Found";
         break;

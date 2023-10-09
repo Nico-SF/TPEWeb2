@@ -1,1 +1,28 @@
+<?php require 'templates/header.phtml' ?>
 
+<section class="products">
+    <h2 class="text-center my-5">Productos</h2>
+    <div class="container">
+        <div class="row">
+            <?php $count = 0; ?>
+            <?php foreach ($products as $products) : ?>
+                <div class="col-4">
+                    <div class="card">
+                        <img src="https://picsum.photos/500/300" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $products->producto_nombre ?></h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary text-center">Ver mas</a>
+                        </div>
+                    </div>
+                </div>
+                <?php $count++; ?>
+                <?php if ($count % 3 == 0) : ?>
+                    </div><div class="row">
+                <?php endif; ?>
+            <?php endforeach ?>
+        </div>
+    </div>
+</section>
+
+<?php require 'templates/footer.phtml' ?>
