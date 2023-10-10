@@ -1,12 +1,14 @@
 <?php
 
-class ProductModel
-{
+require_once './config.php';
+
+class ProductModel {
     private $db;
 
-    function __construct()
-    {
-        $this->db = new PDO('mysql:host=localhost;dbname=ecommerce_db;charset=utf8', 'root', '');
+    function __construct() {
+        $this->db = $this->db = new PDO(Config::$CONNECTION['string'],
+                                        Config::$CONNECTION['user'],
+                                        Config::$CONNECTION['password']);
     }
 
     /**
