@@ -45,7 +45,10 @@ class ProductModel {
     public function getProductById($product_id)
     {
 
-            $query = $this->db->prepare('SELECT * FROM productos WHERE productos.producto_id = :product_id');
+            $query = $this->db->prepare('SELECT productos.*, categorias.categoria_nombre
+                                         FROM productos
+                                         JOIN categorias ON productos.categoria_id = categorias.categoria_id
+                                         WHERE productos.producto_id = :product_id');
             $query->bindParam(':product_id', $product_id, PDO::PARAM_INT);
             $query->execute();
 

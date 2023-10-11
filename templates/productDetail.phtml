@@ -8,8 +8,7 @@
     <p>Categoría: <?= $product->categoria_nombre ?></p>
     <!-- Mostrar la imagen del producto -->
     <!-- <img src=" " alt=" "> -->
-    <!-- Agregar más detalles según sea necesario -->
-    <a href="productos/ver/<?= $product->producto_id; ?>" class="btn btn-primary">Volver a la lista de productos</a>
+    <a href="productos/<?= $product->categoria_id; ?>" class="btn btn-primary">Volver a la lista de productos</a>
 </div>
 
 <?php require 'templates/footer.phtml' ?>
