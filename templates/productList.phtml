@@ -8,7 +8,7 @@
             <?php foreach ($products as $product) : ?>
                 <div class="col-4">
                     <div class="card">
-                        <img src="https://picsum.photos/500/300" class="card-img-top" alt="...">
+                        <img src="<?= $product->imagen_url; ?>" class="card-img-top" alt="" width="300" height="300">
                         <div class="card-body">
                             <h5 class="card-title"><?= $product->producto_nombre ?></h5>
                             <p class="card-text">Categoría: <?= $product->categoria_nombre ?></p>

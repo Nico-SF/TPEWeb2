@@ -41,6 +41,7 @@ switch ($params[0]) {
             $controller = new ProductController();
             $controller->showAllProducts();
         }
+        break;
     default:
         echo "404 Page Not Found";
         break;
