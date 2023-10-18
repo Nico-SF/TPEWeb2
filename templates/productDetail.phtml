@@ -1,0 +1,12 @@
+<?php require 'templates/header.phtml' ?>
+
+<div class="container">
+    <h2><?= $product->producto_nombre ?></h2>
+    <p><?= $product->descripcion ?></p>
+    <p>Precio: $<?= $product->precio ?></p>
+    <p>Categoría: <?= $product->categoria_nombre ?></p>
+    <a href="productos/<?= $product->categoria_id; ?>" class="btn btn-primary">Volver a la lista de productos</a>
+</div>
+
+<?php require 'templates/footer.phtml' ?>
+
