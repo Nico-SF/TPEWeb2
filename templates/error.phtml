@@ -1,0 +1,48 @@
+<?php require './templates/header.phtml' ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Page Not Found</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .error-code {
+            font-size: 5em;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>404 - Pagina no encontrada!</h1>
+        <p> La página que estás buscando ha sido removida, o está temporalmente no disponible. </p>
+        <div class="error-code">404</div>
+    </div>
+</body>
+</html>
+<?php require './templates/footer.phtml' ?>

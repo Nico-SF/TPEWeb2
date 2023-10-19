@@ -1,0 +1,15 @@
+<?php require './templates/header.phtml' ?>
+
+<form method="POST" action="login">
+    <div class="mb-3">
+        <label for="InputUsername" class="form-label">Usuario</label>
+        <input type="text" class="form-control" name="username">
+    </div>
+    <div class="mb-3">
+        <label for="InputPassword" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Log In</button>
+</form>
+
+<?php require './templates/footer.phtml' ?>
