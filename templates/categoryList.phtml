@@ -8,9 +8,10 @@
             <?php foreach ($category as $category) : ?>
                 <div class="col-4">
                     <div class="card">
-                        <img src="https://picsum.photos/500/300" class="card-img-top" alt="...">
+                    <img src="<?= $category -> categoria_img?>" class="card-img-top" alt="" width="300" height="300">
                         <div class="card-body">
                             <h5 class="card-title"><?= $category->categoria_nombre ?></h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <a href="productos/<?= $category->categoria_id ?>" class="btn btn-primary text-center">Ver más</a>
                         </div>
                     </div>

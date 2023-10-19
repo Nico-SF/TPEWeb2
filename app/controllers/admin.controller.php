@@ -55,7 +55,7 @@
         // CRUD
 
         // Product
-        public function crearProducto() {
+        public function createProduct() {
             AuthHelper::verify();
             $category_id = $_POST['product_category'];
             $product_name = $_POST['product_name'];
@@ -65,7 +65,7 @@
             header('Location: ' . BASE_URL .'admin');
         }
 
-        public function editarProducto($product_id) {
+        public function editProduct($product_id) {
             AuthHelper::verify();
             $category_id = $_POST['product_category'];
             $product_name = $_POST['product_name'];
@@ -75,28 +75,28 @@
             header('Location: ' . BASE_URL .'admin');
         }
 
-        public function borrarProducto($product_id) {
+        public function deleteProduct($product_id) {
             AuthHelper::verify();
             $this->model->deleteProduct($product_id);
             header('Location: ' . BASE_URL .'admin');
         }
 
         // Category
-        public function crearCategoria() {
+        public function createCategory() {
             AuthHelper::verify();
             $category_name = $_POST['category_name'];
             $this->model->createCategory($category_name);
             header('Location: ' . BASE_URL .'admin');
         }
 
-        public function editarCategoria($category_id) {
+        public function editCategory($category_id) {
             AuthHelper::verify();
             $category_name = $_POST['category_name'];
             $this->model->updateCategory($category_id, $category_name);
             header('Location: ' . BASE_URL .'admin');
         }
 
-        public function borrarCategoria($categoryId) {
+        public function deleteCategory($categoryId) {
             AuthHelper::verify();
             $this->model->deleteCategory($categoryId);
             header('Location: ' . BASE_URL .'admin');

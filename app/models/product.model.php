@@ -11,13 +11,17 @@ class ProductModel {
                                         Config::$CONNECTION['password']);
     }
 
-    function getProducts()
+    /**
+     * Obtiene y devuelve de la base de datos todas los productos
+     */
+    function getProducts() //podria ser getAllProducts
     {
         $query = $this->db->prepare('SELECT productos.*, categorias.categoria_nombre
                                     FROM productos
                                     JOIN categorias ON productos.categoria_id = categorias.categoria_id');
         $query->execute();
 
+        // $product es un arreglo de productos
         $product = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $product;
@@ -40,6 +44,7 @@ class ProductModel {
 
     public function getProductById($product_id)
     {
+
             $query = $this->db->prepare('SELECT productos.*, categorias.categoria_nombre
                                          FROM productos
                                          JOIN categorias ON productos.categoria_id = categorias.categoria_id

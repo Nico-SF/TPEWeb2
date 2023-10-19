@@ -17,7 +17,10 @@ class CategoryController
 
     public function showCategory()
     {
+        // obtengo tareas del controlador
         $categories = $this->model->getCategory();
+
+        // muestro las tareas desde la vista
         $this->view->showCategory($categories);
     }
 

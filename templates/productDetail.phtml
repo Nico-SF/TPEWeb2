@@ -1,12 +1,22 @@
 <?php require 'templates/header.phtml' ?>
 
-<div class="container">
-    <h2><?= $product->producto_nombre ?></h2>
-    <p><?= $product->descripcion ?></p>
-    <p>Precio: $<?= $product->precio ?></p>
-    <p>Categoría: <?= $product->categoria_nombre ?></p>
-    <a href="productos/<?= $product->categoria_id; ?>" class="btn btn-primary">Volver a la lista de productos</a>
+<!-- productDetail.phtml -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <!-- Mostrar la imagen del producto -->
+            <img src="<?= $product->imagen_url; ?>" class="card-img-top" alt="" width="300" height="300">
+        </div>
+        <div class="col-md-8">
+            <h2><?= $product->producto_nombre ?></h2>
+            <p><?= $product->descripcion ?></p>
+            <p>Precio: $<?= $product->precio ?></p>
+            <p>Categoría: <?= $product->categoria_nombre ?></p>
+            <a href="productos/<?= $product->categoria_id; ?>" class="btn btn-primary">Volver a la lista de productos</a>
+        </div>
+    </div>
 </div>
 
 <?php require 'templates/footer.phtml' ?>
+
 

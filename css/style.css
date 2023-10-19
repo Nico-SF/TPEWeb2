@@ -1,0 +1,13 @@
+body {
+    background-color: #f4f4f4f8;
+}
+
+.card {
+    margin: 10px;
+}
+
+.carousel img {
+    width: 1920px;
+    height: 300px;
+    object-fit: cover; /* Esta propiedad se utiliza para mantener la relación de aspecto */
+}
