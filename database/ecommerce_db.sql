@@ -91,8 +91,32 @@ ALTER TABLE `productos`
 --
 -- Filtros para la tabla `productos`
 --
-ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`categoria_id`);
+    ALTER TABLE `productos`
+    ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`categoria_id`);
+
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `usuario_id` int(11) NOT NULL,
+  `usuario_nombre` varchar(200) NOT NULL,
+  `usuario_pass` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`usuario_id`);
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 COMMIT;
 
 INSERT IGNORE INTO `categorias`(`categoria_id`, `categoria_nombre`, `categoria_img`) VALUES ('1','Almacenamiento', 'https://us.123rf.com/450wm/maxpraym/maxpraym2006/maxpraym200600001/148739475-conjunto-de-disco-duro-unidades-de-estado-s%C3%B3lido-cuadradas-nuevas-isom%C3%A9tricas-negras-ilustraciones.jpg');
@@ -140,6 +164,8 @@ INSERT IGNORE INTO `productos` (`producto_id`, `categoria_id`, `producto_nombre`
 INSERT IGNORE INTO `productos` (`producto_id`, `categoria_id`, `producto_nombre`, `descripcion`, `precio`, `imagen_url`)
     VALUES ('18','6','Fuente Deepcool 700W DA700 80 Plus Bronze','La fuente de poder Deepcool 700W DA700 80 Plus Bronze es una opción sólida para aquellos que buscan una fuente de alimentación confiable y eficiente para sus sistemas de nivel medio. Con una capacidad de 700W y certificación 80 Plus Bronze, esta fuente de poder ofrece un rendimiento eficiente y estable.','43000','https://imagenes.compragamer.com/productos/compragamer_Imganen_general_33806_Fuente_Deepcool_700W_DA700_80_Plus_Bronze_65a49133-grn.jpg');
 
+INSERT IGNORE INTO `usuarios` (`usuario_id`, `usuario_nombre`, `usuario_pass`)
+    VALUES (2, 'webadmin', '$2y$10$7yTAQ1oEKPk071dHEpxVJ.sQJY8fbWH9BAvCbi8XJ2bJzjG52bKWy');
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

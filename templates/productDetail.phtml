@@ -3,11 +3,11 @@
 <!-- productDetail.phtml -->
 <div class="container mt-4">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <!-- Mostrar la imagen del producto -->
-            <img src="<?= $product->imagen_url; ?>" alt="<?= $product->producto_nombre; ?>" width="500" height="500">
+            <img src="<?= $product->imagen_url; ?>" class="card-img-top" alt="" width="300" height="300">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <h2><?= $product->producto_nombre ?></h2>
             <p><?= $product->descripcion ?></p>
             <p>Precio: $<?= $product->precio ?></p>

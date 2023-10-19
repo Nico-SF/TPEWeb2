@@ -1,0 +1,58 @@
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Actualizar</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through categories and display them in rows -->
+                <?php
+                    foreach ($products as $product) {
+                        echo "<tr>";
+                        echo "<form method='post' action='productos/editar/{$product->producto_id}'>";
+                        echo "<td> {$product->producto_id} </td>";
+                        // Dropdown Categoria
+                        echo "<td class='dropdown'>";
+                        echo "<select class='btn btn-outline-secondary' name='product_category' class='form-select'>";
+                        foreach ($categories as $category) {
+                            $selected = ($category->categoria_id == $product->categoria_id) ? "selected" : "";
+                            echo "<option value='{$category->categoria_id}' $selected>{$category->categoria_nombre}</option>";
+                        }
+                        echo "</select>";
+                        echo "</td>";
+                        // Dropdown Categoria fin
+                        echo "<td><input class='form-control' type='text' name='product_name' value='{$product->producto_nombre}'></td>";
+                        echo "<td><textarea class='form-control' name='description'>{$product->descripcion}</textarea></td>";
+                        echo "<td><input class='form-control' type='number' name='price' value='{$product->precio}'></td>";
+
+                        echo "<td><input type='submit' class='btn btn-info' value='Actualizar'></td>";
+                        echo "</form>";
+                        echo "<td><form method='post' action='productos/borrar/{$product->producto_id}'><input type='submit' class='btn btn-dark' value='Borrar'></button></form></td>";
+                        echo "</tr>";
+                    }
+                    echo "<tr>";
+                    echo "<form method='post' action='productos/crear'>";
+                    echo "<td><label for='product_id'> # </label></td>";
+                    echo "<td class='dropdown'>";
+                    echo "<select class='btn btn-outline-secondary' name='product_category' class='form-select'>";
+                    foreach ($categories as $category) {
+                        echo "<option value='{$category->categoria_id}'>{$category->categoria_nombre}</option>";
+                    }
+                    echo "</select>";
+                    echo "</td>";
+                    echo "<td><input placeholder='Ingrese nuevo producto' class='form-control' type='text' name='product_name' id='product_name' required></td>";
+                    echo "<td><textarea class='form-control' name='description' placeholder='Ingrese descripción'></textarea></td>";
+                    echo "<td><input class='form-control' type='number' name='price' required></td>";
+                    echo "<td><button class='btn btn-success' type='submit'>Agregar</button></td>";
+                    echo "</form>";
+                    echo "</tr>";
+
+                ?>
+            </tbody>
+        </table>
