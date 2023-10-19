@@ -16,106 +16,52 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
+
 -- Base de datos: `ecommerce_db`
---
+
 
 CREATE DATABASE IF NOT EXISTS ecommerce_db;
 
 USE ecommerce_db;
 
--- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `categorias`
---
+-- Estructura de la tabla `categorias`
+
 
 CREATE TABLE IF NOT EXISTS `categorias` (
-  `categoria_id` int(11) NOT NULL,
+  `categoria_id` int(11) NOT NULL AUTO_INCREMENT,
   `categoria_nombre` varchar(200) NOT NULL,
-  `categoria_img` varchar(255) NOT NULL
+  `categoria_img` varchar(255) NOT NULL,
+  PRIMARY KEY (`categoria_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `productos`
---
+
+-- Estructura de la tabla `productos`
+
 
 CREATE TABLE IF NOT EXISTS `productos` (
-  `producto_id` int(11) NOT NULL,
-  `categoria_id` int(11) NOT NULL,
+  `producto_id` int(11) NOT NULL AUTO_INCREMENT,
+  `categoria_id` int(11),
   `producto_nombre` varchar(200) NOT NULL,
   `descripcion` text NOT NULL,
   `precio` decimal(15,2) NOT NULL,
-  `imagen_url` varchar(255) NOT NULL
+  `imagen_url` varchar(255) NOT NULL,
+  PRIMARY KEY (`producto_id`),
+  KEY `categoria_id` (`categoria_id`),
+  CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`categoria_id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Índices para tablas volcadas
---
 
---
--- Indices de la tabla `categorias`
---
-ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`categoria_id`);
-
---
--- Indices de la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`producto_id`),
-  ADD KEY `categoria_id` (`categoria_id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `categorias`
---
-ALTER TABLE `categorias`
-  MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `productos`
---
-ALTER TABLE `productos`
-  MODIFY `producto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `productos`
---
-    ALTER TABLE `productos`
-    ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`categoria_id`);
+-- Estructura de la tabla `usuarios`
 
 
---
--- Estructura de tabla para la tabla `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `usuario_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `usuario_id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario_nombre` varchar(200) NOT NULL,
-  `usuario_pass` varchar(200) NOT NULL
+  `usuario_pass` varchar(200) NOT NULL,
+  PRIMARY KEY (`usuario_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`usuario_id`);
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 COMMIT;
 

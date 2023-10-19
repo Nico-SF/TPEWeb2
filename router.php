@@ -7,7 +7,7 @@ require_once './app/controllers/admin.controller.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
-$action = 'home'; // accion por defecto
+$action = 'categorias'; // accion por defecto
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -22,23 +22,23 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
-    case 'home':
+    case 'categorias':
         if (isset($params[1])) {
             switch ($params[1]) {
                 case 'crear':
                     $controller = new AdminController();
-                    $controller->crearCategoria();
+                    $controller->createCategory();
                     break;
                 case 'editar':
                     if (isset($params[2])) {
                         $controller = new AdminController();
-                        $controller->editarCategoria($params[2]);
+                        $controller->editCategory($params[2]);
                     }
                     break;
                 case 'borrar':
                     if (isset($params[2])) {
                         $controller = new AdminController();
-                        $controller->borrarCategoria($params[2]);
+                        $controller->deleteCategory($params[2]);
                     }
                     break;
             }
@@ -59,18 +59,18 @@ switch ($params[0]) {
                     break;
                 case 'crear':
                     $controller = new AdminController();
-                    $controller->crearProducto();
+                    $controller->createProduct();
                     break;
                 case 'editar':
                     if (isset($params[2])) {
                         $controller = new AdminController();
-                        $controller->editarProducto($params[2]);
+                        $controller->editProduct($params[2]);
                     }
                     break;
                 case 'borrar':
                     if (isset($params[2])) {
                         $controller = new AdminController();
-                        $controller->borrarProducto($params[2]);
+                        $controller->deleteProduct($params[2]);
                     }
                     break;
                 default:
